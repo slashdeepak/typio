@@ -1,0 +1,48 @@
+
+:root {
+    --primary-bg: #000;
+    --primary-fg: #fff;
+    --primary-accent: "";
+}
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.typio-container {
+  background-color: var(--primary-bg);
+  color: var(--primary-fg);
+  height: 100vh;
+  padding: 0.5rem;
+  overflow: hidden;
+  font-family: "Roboto Mono", monospace;
+}
+  
+  
+.main-heading {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.7rem;
+  
+  .logo {
+    display: inline-block;
+    width: 2.3rem;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+    padding-bottom: 0.3rem;
+    background-clip: text;
+    /* color: rgba(255,255,255,0.6); */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+
+  &:hover {
+      cursor: pointer;
+  }
+
+}
