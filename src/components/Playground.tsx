@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { getTextContent, isKeyAlphabet } from "./utils/Utils";
-import cx from 'classnames';
-import gsap from 'gsap';
 import { useWindowSize } from "./utils/Hooks";
-import Countdown from "./Countdown";
 import { TypioContext } from "./utils/Typio.context";
 import { TypingEvent } from "./utils/Typio.model";
+import cx from 'classnames';
+import gsap from 'gsap';
+import Countdown from "./Countdown";
 import './styles/Playground.css';
 
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './styles/Countdown.css';
 import { TypioContext } from './utils/Typio.context';
 

@@ -1,9 +1,9 @@
-import { TypingResult } from "./utils/Typio.model";
-import "./styles/Result.css";
-import CountUp from "react-countup";
-import { useWindowSize } from "./utils/Hooks";
-import Confetti from 'react-confetti';
 import { useEffect, useState } from "react";
+import { TypingResult } from "./utils/Typio.model";
+import { useWindowSize } from "./utils/Hooks";
+import CountUp from "react-countup";
+import Confetti from 'react-confetti';
+import "./styles/Result.css";
 
 const Result = (props:{result:TypingResult|null}) => {
     const [result, setResult] = useState<TypingResult|null>(null);
@@ -29,8 +29,7 @@ const Result = (props:{result:TypingResult|null}) => {
 
           <div className="metric"> 
             <div className="main">
-              {/* <div className="value">{result?.wpm}</div> */}
-              <div className="value"> { result && <CountUp end={result?.wpm} duration={2}/> } </div>
+              <div className="value"> { result && <CountUp end={result?.wpm} duration={3}/> } </div>
               <div className="label">Words per Minute (WPM)</div>  
             </div>
 
@@ -42,7 +41,7 @@ const Result = (props:{result:TypingResult|null}) => {
 
           <div className="metric">
             <div className="main">
-              <span className="value">{ result && <CountUp end={result?.accuracy} suffix="%" duration={2}/> } </span>
+              <span className="value">{ result && <CountUp end={result?.accuracy} suffix="%" duration={3}/> } </span>
               <span className="label">Accuracy</span>
             </div>
 
