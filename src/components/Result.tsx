@@ -1,14 +1,36 @@
 import { TypingResult } from "./utils/Typio.model";
 import "./styles/Result.css";
+import CountUp from "react-countup";
+import { useWindowSize } from "./utils/Hooks";
+import Confetti from 'react-confetti';
+import { useEffect, useState } from "react";
 
 const Result = (props:{result:TypingResult|null}) => {
-    const result = props.result;
-    
+    const [result, setResult] = useState<TypingResult|null>(null);
+    const { windowWidth, windowHeight } = useWindowSize();
+
+    useEffect(() => {
+      if(props.result) {
+        const _result:TypingResult = {
+          wpm: props.result.wpm > 0 ? props.result.wpm : 0,
+          accuracy: props.result.accuracy > 0 ? props.result.accuracy : 0,
+          totalKeyCount: props.result.totalKeyCount,
+          backspaceKeyCount: props.result.backspaceKeyCount,
+          hitKeys: props.result.hitKeys,
+          errorKeys: props.result.errorKeys
+        };
+        setResult(_result);
+      }
+    }, [props]);
+
     return (
       <div className="result">
+          { (result && result.wpm >25) && <Confetti width={windowWidth} height={windowHeight} recycle={true} /> }
+
           <div className="metric"> 
             <div className="main">
-              <div className="value">{result?.wpm}</div>
+              {/* <div className="value">{result?.wpm}</div> */}
+              <div className="value"> { result && <CountUp end={result?.wpm} duration={2}/> } </div>
               <div className="label">Words per Minute (WPM)</div>  
             </div>
 
@@ -20,7 +42,7 @@ const Result = (props:{result:TypingResult|null}) => {
 
           <div className="metric">
             <div className="main">
-              <span className="value">{result?.accuracy + "%"}</span>
+              <span className="value">{ result && <CountUp end={result?.accuracy} suffix="%" duration={2}/> } </span>
               <span className="label">Accuracy</span>
             </div>
 

@@ -104,6 +104,9 @@ const Playground = () => {
     if (!timeLeft) return;
     const intervalId = setInterval(() => {
       setTimeLeft(timeLeft - 1);
+      let newContext = context;
+      newContext.timeLeft = timeLeft;
+      setContext({...newContext});
     }, 1000);
     return () => clearInterval(intervalId);
   }, [timeLeft]);

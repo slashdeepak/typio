@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { TypioContext } from "../utils/Typio.context";
 import { TypingEvent, TypingResult } from "./Typio.model";
 
@@ -31,6 +31,7 @@ export function useWindowSize() {
 interface Result {
   result: TypingResult | null
 }
+
 
 export function useResult() {
   const {context, setContext} = useContext(TypioContext);
@@ -119,3 +120,4 @@ export function useResult() {
   
   return result;
 }
+
