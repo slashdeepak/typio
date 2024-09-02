@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { AppContext, ContextData } from "./utils/Typio.model";
+import { AppContext } from "./Typio.model";
 
 
 export const TypioContext = createContext<AppContext>({

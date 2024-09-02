@@ -12,7 +12,7 @@ export interface ContextData {
   backspaceKeyCount: number,
 }
 
-type SetContextCallback = () => {};
+// type SetContextCallback = () => {};
 
 export interface TypingEvent {
   letterIndex: number,

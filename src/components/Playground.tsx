@@ -148,7 +148,7 @@ const Playground = () => {
         </div>
 
         <div className="next-lines" ref={nextLinesRef}> {
-          typingContentNext.map((letter, letterIndex) =>
+          typingContentNext.map((letter) =>
             <span className="letter">{letter}</span>
           )
         }

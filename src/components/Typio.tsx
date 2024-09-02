@@ -8,7 +8,7 @@ import './styles/Typio.css';
 
 
 const Typio = () => {
-  const {context, setContext} = useContext(TypioContext);
+  const {context} = useContext(TypioContext);
   const {result} = useResult();
 
   return (

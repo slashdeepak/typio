@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
 import { TypioContext } from "../utils/Typio.context";
 import { TypingEvent, TypingResult } from "./Typio.model";
 
@@ -34,7 +34,7 @@ interface Result {
 
 
 export function useResult() {
-  const {context, setContext} = useContext(TypioContext);
+  const {context} = useContext(TypioContext);
   const [result, setResult] = useState<Result>({result:null});
   const [typedWords, setTypedWords] = useState<Array<TypingEvent[]>>([]);
 
@@ -44,7 +44,7 @@ export function useResult() {
 
   const updateTypedWords = () => {
     if(context.typingProgress?.length > 0) {
-      const _typedEntries:TypingEvent[] = context.typingProgress.map(t => JSON.parse(JSON.stringify(t)));
+      const _typedEntries:TypingEvent[] = context.typingProgress.map((t:TypingEvent) => JSON.parse(JSON.stringify(t)));
       const last = _typedEntries[_typedEntries.length-1]
       
       if(_typedEntries?.length>0) {
@@ -95,7 +95,7 @@ export function useResult() {
 
 
   const hitAndErrorKeys = () => {
-    const _typedKeys:TypingEvent[] = context.typingProgress.filter(k => k.letterTyped != " ");
+    const _typedKeys:TypingEvent[] = context.typingProgress.filter((k:TypingEvent) => k.letterTyped != " ");
     let hitKeys:string[] = [];
     let errorKeys:string[] = [];
     hitKeys = _typedKeys.filter(key => key.isHitSuccess).map(key => key.letterTyped);
